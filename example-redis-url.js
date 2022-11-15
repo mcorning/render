@@ -11,9 +11,9 @@ const renderRedis = new Redis(REDIS_URL);
 console.log('Connected to Render Redis! 🚀');
 renderRedis.xadd('test', '*', 'key', 'KEY', 'value', 'VALUE');
 renderRedis.xrange('test', '-', '+').then((result) => {
-  console.log(`Result for key test: ${result}`); // Prints "cat"
+  console.log(`Result for key test: ${result}`);
 });
-
+console.log(renderRedis.type('test'));
 renderRedis.set('animal', 'cat');
 
 renderRedis.get('animal').then((result) => {
