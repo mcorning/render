@@ -13,7 +13,7 @@ renderRedis.xadd('test', '*', 'key', 'KEY', 'value', 'VALUE');
 renderRedis.xrange('test', '-', '+').then((result) => {
   console.log(`Result for key test: ${result}`);
 });
-console.log(renderRedis.type('test'));
+renderRedis.type('test').then((type) => console.log('Type:', type));
 renderRedis.set('animal', 'cat');
 
 renderRedis.get('animal').then((result) => {
