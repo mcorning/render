@@ -9,6 +9,10 @@ const { REDIS_URL } = process.env;
 const renderRedis = new Redis(REDIS_URL);
 
 console.log('Connected to Render Redis! 🚀');
+renderRedis.xadd('test', '*', 'key', 'KEY', 'value', 'VALUE');
+renderRedis.xrange('test', '-', '+').then((result) => {
+  console.log(`Result for key test: ${result}`); // Prints "cat"
+});
 
 renderRedis.set('animal', 'cat');
 
