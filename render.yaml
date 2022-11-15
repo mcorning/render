@@ -7,6 +7,7 @@ services:
   # Create background worker service
   - type: worker
     name: ioredis-worker
+    region: singapore
     env: node
     buildCommand: "yarn"
     startCommand: "yarn run redis-url"
